@@ -1,45 +1,65 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState } from 'react';
+import ListFriend from "./components/listFriend";
 
-function App() {
-  const [count, setCount] = useState(0)
+function App () {
+    const myInfo = {
+        name: "Tuân Demo",
+        age: 18,
+        school: "FPT Polytechinc",
+        address: "Lạng Giang, Bắc Giang",
+        status: 0
+    };
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    const myFriend = [
+        {
+            id: 1,
+            name: "Khôi",
+            address: "Hà Giang"
+        },
+        {
+            id: 2,
+            name: "Quyết",
+            address: "Phú Thọ"
+        },
+        {
+            id: 3,
+            name: "Đồng chí TLinh",
+            address: "Bắc Giang"
+        },
+        {
+            id: 4,
+            name: "Tuấn Anh",
+            address: "Bắc Giang"
+        },
+        {
+            id: 5,
+            name: "Diễm My 9x",
+            address: "Hà Nội"
+        },
+    ];
+
+    const removeFriend = id => setFriends(friends.filter(item => item.id !== id));
+
+    const [info, setInfo] = useState(myInfo);
+    const [friends, setFriends] = useState(myFriend);
+
+    return (
+        <div style={{ margin: 10 }}>
+            <h1>Thông tin cá nhân</h1>
+            <p>Tên: {info.name}</p>
+            <p>Tuổi: {info.age}</p>
+            <p>Địa chỉ: {info.address}</p>
+            <p>SV {info.school}</p>
+            <p>
+                Trạng thái: {info.status ? "Đã có nguoiyeu" : "Độc toàn thân"}
+                <button onClick={() => setInfo({...info, status: !info.status})} style={{ marginLeft: 10 }}>Toggle status</button>
+            </p>
+
+            <h1>List friend</h1>
+            
+            {!friends.length ? "Không có item nào" : <ListFriend data={friends} onclick={removeFriend} />}
+        </div>
+    )
 }
 
-export default App
+export default App;
