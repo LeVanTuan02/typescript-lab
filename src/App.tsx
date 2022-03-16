@@ -1,28 +1,26 @@
-import logo from './logo.svg'
-import './App.css'
-import { useState } from "react";
-import ShowProduct from "./components/ShowProduct";
-import type { Product } from "./types/product"
+import { Routes, Route, Navigate } from "react-router-dom";
+import AdminLayout from "./pages/layouts/AdminLayout";
+import WebsiteLayout from "./pages/layouts/WebsiteLayout";
+import DashboardPage from "./pages/admin/DashboardPage";
+import HomePage from "./pages/user/HomePage";
+import ProductPage from "./pages/user/ProductPage";
 
 function App() {
-    const [products, setProducts] = useState<Product[]>(() => {
-        return [
-            {
-                id: 1,
-                name: "Product A",
-                description: "Desc"
-            },
-            {
-                id: 2,
-                name: "Product B",
-                description: "Desc B"
-            }
-        ];
-    });
-
     return (
         <div className="App">
-            <ShowProduct products={products} />
+            <main>
+                <Routes>
+                    <Route path="/" element={<WebsiteLayout />}>
+                        <Route index element={<HomePage />} />
+                        <Route path="products" element={<ProductPage />} />
+                    </Route>
+
+                    <Route path="/admin" element={<AdminLayout />}>
+                        <Route index element={<Navigate to="dashboard" />} />
+                        <Route path="dashboard" element={<DashboardPage />} />
+                    </Route>
+                </Routes>
+            </main>
         </div>
     )
 }
