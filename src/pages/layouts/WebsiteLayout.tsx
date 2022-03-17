@@ -15,15 +15,15 @@ const WebsiteLayout = (props: Props) => {
                             </NavLink>
                         </div>
                         <nav className="hidden md:flex space-x-10">
-                            <NavLink to="/" className="text-base font-medium text-gray-500 hover:text-gray-900">Trang chủ</NavLink>
-                            <NavLink to="/" className="text-base font-medium text-gray-500 hover:text-gray-900">Giới thiệu</NavLink>
-                            <NavLink to="/products" className="text-base font-medium text-gray-500 hover:text-gray-900">Sản phẩm</NavLink>
-                            <NavLink to="/" className="text-base font-medium text-gray-500 hover:text-gray-900">Tin tức</NavLink>
-                            <NavLink to="/" className="text-base font-medium text-gray-500 hover:text-gray-900">Liên hệ</NavLink>
+                            <NavLink to="/" className="header__nav-link text-gray-900 text-base font-medium text-gray-500 hover:text-gray-900">Trang chủ</NavLink>
+                            <NavLink to="/about" className="header__nav-link text-base font-medium text-gray-500 hover:text-gray-900">Giới thiệu</NavLink>
+                            <NavLink to="/products" className="header__nav-link text-base font-medium text-gray-500 hover:text-gray-900">Sản phẩm</NavLink>
+                            <NavLink to="/news" className="header__nav-link text-base font-medium text-gray-500 hover:text-gray-900">Tin tức</NavLink>
+                            <NavLink to="/contact" className="header__nav-link text-base font-medium text-gray-500 hover:text-gray-900">Liên hệ</NavLink>
                         </nav>
                         <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                            <NavLink to="/" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"> Sign in </NavLink>
-                            <NavLink to="/" className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-1.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"> Sign up </NavLink>
+                            <NavLink to="/login" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"> Sign in </NavLink>
+                            <NavLink to="/register" className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-1.5 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"> Sign up </NavLink>
                         </div>
                     </div>
                 </div>
