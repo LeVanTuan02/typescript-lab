@@ -10,8 +10,24 @@ import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import AboutPage from "./pages/user/AboutPage";
 import ProductDetail from "./pages/user/ProductDetail";
+import ListProduct from "./pages/admin/product/ListProduct";
+import AddProduct from "./pages/admin/product/AddProduct";
+import { add } from "./api/product";
+import { ProductType } from "./types/product";
 
 function App() {
+    const handleAddProduct = async ({ name, price, status, category, description }: ProductType) => {
+        const { data } = await add({
+            description,
+            name: name,
+            price: +price,
+            status: +status,
+            category: "6232a9a09ef873b2655fe948",
+            image: "abc.png"
+        });
+        console.log(data);
+    };
+
     return (
         <div className="App">
             <main>
@@ -30,6 +46,8 @@ function App() {
                     <Route path="/admin" element={<AdminLayout />}>
                         <Route index element={<Navigate to="dashboard" />} />
                         <Route path="dashboard" element={<DashboardPage />} />
+                        <Route path="products" element={<ListProduct />} />
+                        <Route path="products/add" element={<AddProduct onSubmitAdd={handleAddProduct} />} />
                     </Route>
                 </Routes>
             </main>
