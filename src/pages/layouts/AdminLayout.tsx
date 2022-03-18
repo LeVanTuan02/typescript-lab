@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 const AdminLayout = () => {
     return (
         <div className="flex">
-            <aside className="flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
+            <aside className="fixed top-0 left-0 bottom-0 flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
                 <h2 className="text-3xl font-semibold text-gray-800 dark:text-white">
                     <NavLink to="/">FPOLY</NavLink>
                 </h2>
@@ -57,7 +57,7 @@ const AdminLayout = () => {
                 </div>
             </aside>
     
-            <div className="w-full bg-gray-50">
+            <div className="w-full bg-gray-50 ml-64">
                 <nav className="bg-white border-b px-3 py-3 flex justify-between">
                     <div className="relative">
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
